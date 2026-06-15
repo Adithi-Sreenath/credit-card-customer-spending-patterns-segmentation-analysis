@@ -206,3 +206,56 @@ The clustering analysis delivered several critical insights that challenge conve
 
 ### 8.5 Conclusion
 The Centurion Credit Intelligence System successfully bridges the gap between theoretical data science and operational banking strategy. By separating the computational burden of segment discovery (K-Means) from the rapid execution requirements of real-time inference (KNN), the architecture guarantees scalability. It protects the institution from catastrophic default exposure while providing marketing teams with the behavioral targeting necessary to maximize portfolio yield. The accompanying Streamlit interface ensures that this predictive power remains fully accessible, transparent, and auditable for executive leadership and regulatory bodies alike.
+## 9. Technical Specifications & Tech Stack
+
+The architecture is built on a modern, robust Python data stack optimized for rapid prototyping and seamless machine learning deployment.
+
+### 9.1 Core Technology Stack
+- **Language:** Python 3.9+
+- **Machine Learning & Math:** 
+  - `scikit-learn`: Core ML algorithms (K-Means, KNeighborsClassifier) and preprocessing (`StandardScaler`).
+  - `pandas` / `numpy`: Matrix transformations, data cleaning, and engineered feature calculation.
+- **Data Visualization & Analytics:**
+  - `matplotlib` / `seaborn`: Static notebook analysis, distribution profiling, and heatmap generation.
+  - `plotly`: Highly interactive radar charts embedded dynamically within the dashboard.
+- **Frontend / Deployment:**
+  - `streamlit`: Rapid web application framework converting Python backend logic into a responsive UI without requiring React/Node.js.
+  - **Custom CSS:** Injected via Streamlit's HTML markdown components to override default styling, enforcing a premium monochrome banking aesthetic.
+- **Serialization:**
+  - `joblib`: Lightweight serialization of the trained KNN model and data scalers.
+  - `json`: Configuration mapping for human-readable persona dictionaries.
+
+---
+
+## 10. Local Setup & Execution Instructions
+
+To run the Centurion Credit Intelligence System locally on your machine, follow these steps:
+
+### 10.1 Environment Setup
+It is highly recommended to use a virtual environment to prevent dependency conflicts.
+```bash
+# Clone the repository
+git clone https://github.com/your-username/credit-card-segmentation.git
+cd credit-card-segmentation
+
+# Create and activate a virtual environment
+python -m venv .venv
+# On Windows:
+.venv\Scripts\activate
+# On macOS/Linux:
+source .venv/bin/activate
+
+# Install required dependencies
+pip install pandas numpy scikit-learn streamlit plotly matplotlib seaborn
+```
+
+### 10.2 Launching the Dashboard
+Ensure you are in the root directory of the project, then initialize the Streamlit server:
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+- **Local Network Access:** Streamlit will automatically open a tab in your default web browser (typically at `http://localhost:8501`).
+- **Memory Management:** The system will immediately load the `.joblib` model artifacts into a cached state upon initialization.
+- **Termination:** To stop the server, return to your terminal and press `CTRL + C`.
